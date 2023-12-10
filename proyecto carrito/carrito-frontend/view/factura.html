@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturas</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/global.css'>
+    <script src='../js/factura.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Librerias -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ajax jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="inputdata">
+            <form>
+                <fieldset>
+                    <legend>Legend</legend>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Código</label>
+                        <div class="col-sm-10">
+                            <input type="hidden" name="id" id="id" value="">
+                            <input type="text" class="form-control" name="codigo" required id="codigo" value=""
+                                placeholder="Ingresar código">
+                            <br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Fecha</label>
+                        <div class="col-sm-10">
+                            <input type="datetime" class="form-control" name="fecha" required id="fecha" value="">
+                            <br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Valor total</label>
+                        <div class="col-sm-10">
+
+                            <input type="text" class="form-control" name="valor_total" required id="valor_total"
+                                value="" placeholder="Ingresar valor total">
+                            <br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Cliente</label>
+                        <div class="col-sm-10">
+
+                            <select class="form-select" required id="cliente_id">
+                                <option selected disabled>--Seleccione--</option>
+                            </select>
+                            <br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Estado</label>
+                        <div class="col-sm-10">
+
+                            <select class="form-select" required id="estado">
+                                <option selected disabled>--Seleccione--</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                            <br>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="buttonData">
+            <br>
+            <button name="btnAgregar" class="btn btn-outline-dark" onclick="save()">Agragar</button>
+        </div>
+        <div id="outputData">
+            <!-- Aquí llegan los datos de la bd -->
+            </br>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Código</th>
+                        <th>Fecha</th>
+                        <th>Valor total</th>
+                        <th>Cliente</th>
+                        <th>Estado</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="resultData">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Registro Actualizado con Éxito</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Producto actualizado correctamente.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+
+    
+    
+    loadData();
+    loadCliente();
+</script>
+<html>
+
+

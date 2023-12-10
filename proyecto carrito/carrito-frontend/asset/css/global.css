@@ -1,0 +1,59 @@
+body {
+    background-color: #f4f4f4; /* Cambia esto al color que prefieras para el fondo */
+    font-family: 'Arial', sans-serif; /* Cambia la fuente si lo deseas */
+}
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.table-dark th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+#outputData {
+    margin-top: 20px;
+}
+
+/* Agrega cualquier estilo adicional según tus preferencias */
